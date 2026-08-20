@@ -92,6 +92,46 @@ async function loadStudentsData() {
         ];
     }
 }
+// ============ قسم الفيديو التعريفي ============
+const introVideo = document.getElementById('introVideo');
+const videoPlayBtn = document.getElementById('videoPlayBtn');
+
+if (introVideo && videoPlayBtn) {
+    // عند الضغط على زر التشغيل
+    videoPlayBtn.addEventListener('click', () => {
+        if (introVideo.paused) {
+            introVideo.play();
+            videoPlayBtn.classList.add('hidden');
+        } else {
+            introVideo.pause();
+            videoPlayBtn.classList.remove('hidden');
+        }
+    });
+    
+    // عند تشغيل الفيديو
+    introVideo.addEventListener('play', () => {
+        videoPlayBtn.classList.add('hidden');
+    });
+    
+    // عند إيقاف الفيديو
+    introVideo.addEventListener('pause', () => {
+        videoPlayBtn.classList.remove('hidden');
+    });
+    
+    // عند انتهاء الفيديو
+    introVideo.addEventListener('ended', () => {
+        videoPlayBtn.classList.remove('hidden');
+    });
+    
+    // عند الضغط على الفيديو مباشرة
+    introVideo.addEventListener('click', () => {
+        if (introVideo.paused) {
+            introVideo.play();
+        } else {
+            introVideo.pause();
+        }
+    });
+}
 
 // تحميل البيانات عند بدء التشغيل
 loadStudentsData();
