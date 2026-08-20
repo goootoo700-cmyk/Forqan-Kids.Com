@@ -1,0 +1,468 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Forqan-Kids.Com | قيد التطوير</title>
+    <!-- Font Awesome 6 (مجانية) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Tahoma', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(145deg, #0b2a3e 0%, #1a4b64 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            margin: 0;
+            direction: rtl;
+        }
+
+        .main-card {
+            max-width: 780px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 68px 68px 48px 48px;
+            padding: 40px 30px 50px;
+            box-shadow: 0 30px 45px rgba(0, 0, 0, 0.5), 0 0 0 2px rgba(255, 215, 100, 0.2) inset;
+            border: 1px solid rgba(255, 215, 100, 0.25);
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+
+        /* شعار / عنوان */
+        .logo-area {
+            margin-bottom: 20px;
+        }
+
+        .logo-icon {
+            font-size: 4.2rem;
+            color: #feda7a;
+            filter: drop-shadow(0 6px 10px rgba(0,0,0,0.4));
+            display: inline-block;
+            background: rgba(0,0,0,0.2);
+            padding: 10px 20px;
+            border-radius: 100px;
+            backdrop-filter: blur(4px);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #fff8e7;
+            text-shadow: 0 6px 14px rgba(0, 0, 0, 0.5);
+            letter-spacing: 2px;
+            margin: 12px 0 6px;
+            word-break: break-word;
+        }
+
+        .sub-headline {
+            font-size: 1.3rem;
+            color: #ffecbe;
+            background: rgba(0, 0, 0, 0.25);
+            display: inline-block;
+            padding: 8px 28px;
+            border-radius: 60px;
+            backdrop-filter: blur(4px);
+            margin-bottom: 28px;
+            font-weight: 400;
+            border: 1px solid rgba(255, 215, 100, 0.3);
+        }
+
+        /* العداد */
+        .countdown-wrapper {
+            background: rgba(10, 25, 35, 0.6);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 60px;
+            padding: 30px 20px 25px;
+            margin: 18px 0 28px;
+            border: 1px solid rgba(255, 200, 80, 0.3);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .countdown-grid {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .time-box {
+            background: #0b1f2b;
+            border-radius: 28px;
+            padding: 10px 12px;
+            min-width: 80px;
+            flex: 1 0 auto;
+            max-width: 120px;
+            box-shadow: 0 6px 0 #031016, 0 12px 25px rgba(0,0,0,0.6);
+            border-bottom: 3px solid #f6b83d;
+        }
+
+        .time-box span {
+            display: block;
+            font-size: 3.4rem;
+            font-weight: 800;
+            color: #fdebb3;
+            text-shadow: 0 0 12px #ffb347;
+            letter-spacing: 3px;
+            line-height: 1.2;
+        }
+
+        .time-label {
+            font-size: 1rem;
+            color: #b8d6e5;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 300;
+            background: rgba(0,0,0,0.3);
+            border-radius: 60px;
+            padding: 4px 6px;
+            margin-top: 6px;
+        }
+
+        .separator-dots {
+            display: flex;
+            align-items: center;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #feda7a;
+            padding: 0 2px;
+            text-shadow: 0 0 15px #ffb82e;
+        }
+
+        /* رسالة التطوير */
+        .develop-message {
+            font-size: 1.5rem;
+            background: rgba(0, 0, 0, 0.25);
+            padding: 14px 20px;
+            border-radius: 80px;
+            color: #fef3d6;
+            border-right: 6px solid #f3b33d;
+            border-left: 6px solid #f3b33d;
+            backdrop-filter: blur(4px);
+            margin: 18px 0 25px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            display: inline-block;
+            width: auto;
+        }
+
+        .develop-message i {
+            margin-left: 12px;
+            margin-right: 8px;
+            color: #fdcb6e;
+        }
+
+        /* توقيع المطور */
+        .credit {
+            font-size: 1rem;
+            color: #d4e3ed;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 12px 18px;
+            border-radius: 60px;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 215, 100, 0.2);
+            display: inline-block;
+            margin-top: 15px;
+            font-weight: 300;
+            letter-spacing: 1px;
+            direction: ltr; /* للإنجليزية */
+        }
+
+        .credit i {
+            margin: 0 8px;
+            color: #f7c35c;
+        }
+
+        .credit strong {
+            font-weight: 600;
+            color: #ffdd99;
+        }
+
+        /* أيقونات إضافية */
+        .brand-footer {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            flex-wrap: wrap;
+            font-size: 1.8rem;
+            color: rgba(255, 215, 100, 0.6);
+        }
+
+        .brand-footer i {
+            transition: 0.25s;
+            filter: drop-shadow(0 0 6px #f7b842);
+        }
+
+        .brand-footer i:hover {
+            color: #feda7a;
+            transform: scale(1.2);
+        }
+
+        /* استجابة */
+        @media (max-width: 600px) {
+            .main-card {
+                padding: 30px 18px 35px;
+                border-radius: 40px;
+            }
+            h1 {
+                font-size: 2.2rem;
+            }
+            .time-box span {
+                font-size: 2.6rem;
+            }
+            .time-box {
+                min-width: 60px;
+                padding: 8px 4px;
+            }
+            .separator-dots {
+                font-size: 2.8rem;
+            }
+            .develop-message {
+                font-size: 1.2rem;
+                padding: 10px 16px;
+            }
+            .logo-icon {
+                font-size: 3.2rem;
+                padding: 6px 14px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .time-box span {
+                font-size: 2rem;
+            }
+            .time-box {
+                min-width: 50px;
+            }
+            .countdown-grid {
+                gap: 6px;
+            }
+            .separator-dots {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-card">
+        <!-- الشعار + الاسم -->
+        <div class="logo-area">
+            <div class="logo-icon">
+                <i class="fas fa-mosque"></i> 
+                <i class="fas fa-book-open"></i>
+            </div>
+            <h1>Forqan-Kids.Com</h1>
+            <div class="sub-headline">
+                <i class="fas fa-child"></i> تعليم وتربية
+            </div>
+        </div>
+
+        <!-- عداد 6 ساعات -->
+        <div class="countdown-wrapper">
+            <div class="countdown-grid" id="countdownContainer">
+                <!-- سيتم التعبئة بواسطة js -->
+            </div>
+        </div>
+
+        <!-- رسالة جاري العمل -->
+        <div class="develop-message">
+            <i class="fas fa-cogs fa-spin"></i> 
+            جاري العمل على الصفحة 
+            <i class="fas fa-spinner fa-pulse"></i>
+        </div>
+        <div style="font-size: 1.1rem; color: #c7dbe9; background: rgba(0,0,0,0.15); padding: 6px 16px; border-radius: 60px; display: inline-block; backdrop-filter: blur(2px); margin-bottom: 10px;">
+            <i class="fas fa-clock"></i> سيتم الإطلاق خلال 6 ساعات
+        </div>
+
+        <!-- توقيع المطور (إنجليزي) -->
+        <div class="credit">
+            <i class="fas fa-code"></i> 
+            <strong>Design & Programming by Abdulrahman Adel Al-Muqaddam</strong>
+            <i class="fas fa-laptop-code"></i>
+        </div>
+
+        <!-- أيقونات تزيينية -->
+        <div class="brand-footer">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-crown"></i>
+            <i class="fas fa-gem"></i>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            "use strict";
+
+            // عناصر العداد
+            const container = document.getElementById('countdownContainer');
+
+            // مدة 6 ساعات بالثواني
+            const SIX_HOURS_SECONDS = 6 * 60 * 60; // 21600 ثانية
+
+            // استرجاع وقت الانتهاء من localStorage إذا وجد، وإلا إنشاء وقت جديد + 6 ساعات
+            let endTime = localStorage.getItem('forqan_endTime');
+            const now = Date.now();
+
+            if (!endTime) {
+                // أول مرة: نضع وقت الانتهاء = الآن + 6 ساعات
+                endTime = now + (SIX_HOURS_SECONDS * 1000);
+                localStorage.setItem('forqan_endTime', endTime);
+            } else {
+                endTime = parseInt(endTime, 10);
+                // إذا كان الوقت المخزن قد انتهى (أو أقل من الوقت الحالي) نعيد ضبطه إلى 6 ساعات جديدة
+                if (endTime <= now) {
+                    endTime = now + (SIX_HOURS_SECONDS * 1000);
+                    localStorage.setItem('forqan_endTime', endTime);
+                }
+            }
+
+            // عناصر DOM للعداد (سننشئها في كل تحديث)
+            let hoursSpan, minutesSpan, secondsSpan;
+            let dots1, dots2;
+
+            // إنشاء هيكل العداد
+            function buildCountdownStructure() {
+                // نمسح أي محتوى سابق
+                container.innerHTML = '';
+
+                // --- ساعات ---
+                const boxH = document.createElement('div');
+                boxH.className = 'time-box';
+                hoursSpan = document.createElement('span');
+                hoursSpan.id = 'hours';
+                hoursSpan.textContent = '06';
+                const labelH = document.createElement('div');
+                labelH.className = 'time-label';
+                labelH.textContent = 'ساعات';
+                boxH.appendChild(hoursSpan);
+                boxH.appendChild(labelH);
+                container.appendChild(boxH);
+
+                // النقطتين الأولى
+                dots1 = document.createElement('div');
+                dots1.className = 'separator-dots';
+                dots1.textContent = ':';
+                container.appendChild(dots1);
+
+                // --- دقائق ---
+                const boxM = document.createElement('div');
+                boxM.className = 'time-box';
+                minutesSpan = document.createElement('span');
+                minutesSpan.id = 'minutes';
+                minutesSpan.textContent = '00';
+                const labelM = document.createElement('div');
+                labelM.className = 'time-label';
+                labelM.textContent = 'دقائق';
+                boxM.appendChild(minutesSpan);
+                boxM.appendChild(labelM);
+                container.appendChild(boxM);
+
+                // النقطتين الثانية
+                dots2 = document.createElement('div');
+                dots2.className = 'separator-dots';
+                dots2.textContent = ':';
+                container.appendChild(dots2);
+
+                // --- ثواني ---
+                const boxS = document.createElement('div');
+                boxS.className = 'time-box';
+                secondsSpan = document.createElement('span');
+                secondsSpan.id = 'seconds';
+                secondsSpan.textContent = '00';
+                const labelS = document.createElement('div');
+                labelS.className = 'time-label';
+                labelS.textContent = 'ثواني';
+                boxS.appendChild(secondsSpan);
+                boxS.appendChild(labelS);
+                container.appendChild(boxS);
+            }
+
+            // تحديث العداد
+            function updateCountdown() {
+                const nowTime = Date.now();
+                let remaining = endTime - nowTime;
+
+                // إذا انتهى الوقت: نعيد ضبطه إلى 6 ساعات جديدة (تلقائياً)
+                if (remaining <= 0) {
+                    // نعيد الضبط
+                    endTime = nowTime + (SIX_HOURS_SECONDS * 1000);
+                    localStorage.setItem('forqan_endTime', endTime);
+                    remaining = SIX_HOURS_SECONDS * 1000;
+                }
+
+                // حساب الساعات والدقائق والثواني
+                const totalSec = Math.floor(remaining / 1000);
+                const hours = Math.floor(totalSec / 3600);
+                const minutes = Math.floor((totalSec % 3600) / 60);
+                const seconds = totalSec % 60;
+
+                // تنسيق مع صفر أمامي
+                const hh = String(hours).padStart(2, '0');
+                const mm = String(minutes).padStart(2, '0');
+                const ss = String(seconds).padStart(2, '0');
+
+                if (hoursSpan && minutesSpan && secondsSpan) {
+                    hoursSpan.textContent = hh;
+                    minutesSpan.textContent = mm;
+                    secondsSpan.textContent = ss;
+                }
+
+                // تحديث النقطتين بشكل بسيط (وميض اختياري)
+                if (dots1 && dots2) {
+                    // نغير اللون أو نومض بشكل خفيف (كل ثانية)
+                    const blink = (seconds % 2 === 0) ? '#feda7a' : '#ffb347';
+                    dots1.style.color = blink;
+                    dots2.style.color = blink;
+                }
+            }
+
+            // تهيئة العداد
+            function initCountdown() {
+                buildCountdownStructure();
+                updateCountdown(); // عرض فوري
+                // تحديث كل ثانية
+                setInterval(updateCountdown, 1000);
+            }
+
+            // بدء التشغيل
+            initCountdown();
+
+            // في حالة تغيير علامة التبويب أو إعادة الدخول، نضمن تحديث الوقت بشكل صحيح
+            document.addEventListener('visibilitychange', function() {
+                if (!document.hidden) {
+                    // تحديث عند العودة للصفحة
+                    updateCountdown();
+                }
+            });
+
+            // أيضًا نضمن أن localStorage لا يتعارض مع أكثر من تبويب
+            // نستمع لتغييرات التخزين (إذا تم تعديل endTime في تبويب آخر)
+            window.addEventListener('storage', function(e) {
+                if (e.key === 'forqan_endTime' && e.newValue) {
+                    const newEnd = parseInt(e.newValue, 10);
+                    if (!isNaN(newEnd) && newEnd > Date.now()) {
+                        endTime = newEnd;
+                        updateCountdown();
+                    }
+                }
+            });
+
+        })();
+    </script>
+
+    <!-- إضافة رسالة أسفل الصفحة للتأكيد (اختيارية) -->
+    <div style="display: none;"><!-- لا شيء --></div>
+</body>
+</html>
