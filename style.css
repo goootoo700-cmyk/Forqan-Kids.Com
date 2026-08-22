@@ -1937,3 +1937,303 @@ ul {
         font-size: 1.1rem;
     }
 }
+/* ============ قسم الإعلانات ============ */
+.announcement-section {
+    background: linear-gradient(135deg, #fef9ef 0%, #fef0ec 50%, #fef9ef 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.dark-mode .announcement-section {
+    background: linear-gradient(135deg, #1a1e24 0%, #2a1f1b 50%, #1a1e24 100%);
+}
+
+.announcement-section::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(242, 184, 75, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.announcement-section::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(242, 139, 107, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.announcement-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.announcement-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    background: var(--accent);
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border-radius: var(--radius-full);
+    font-weight: 800;
+    font-size: 1.1rem;
+    width: fit-content;
+    margin: 0 auto 1.5rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.announcement-badge i {
+    font-size: 1.3rem;
+}
+
+.announcement-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--primary-dark);
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+.announcement-content {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    box-shadow: var(--shadow-lg);
+    border: 2px solid var(--secondary);
+}
+
+.announcement-intro {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    line-height: 2;
+}
+
+.announcement-highlight {
+    background: var(--accent-light);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.announcement-highlight p {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--accent);
+}
+
+.announcement-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+}
+
+.announcement-list li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+
+.list-number {
+    width: 35px;
+    height: 35px;
+    background: var(--primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    flex-shrink: 0;
+}
+
+.announcement-method {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 2;
+}
+
+.announcement-method strong {
+    color: var(--primary);
+    font-size: 1.2rem;
+}
+
+.announcement-extras {
+    background: var(--primary-light);
+    border-radius: var(--radius-md);
+    padding: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.announcement-extras p {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: var(--primary-dark);
+    font-weight: 600;
+}
+
+.announcement-extras p:last-child {
+    margin-bottom: 0;
+}
+
+.announcement-goal {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.announcement-goal p {
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+
+.announcement-slogan {
+    font-size: 1.3rem !important;
+    font-weight: 800;
+    color: var(--secondary) !important;
+}
+
+.announcement-message {
+    font-size: 1.1rem;
+}
+
+.announcement-message strong {
+    color: var(--accent);
+    font-size: 1.2rem;
+}
+
+.announcement-hashtags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+}
+
+.announcement-hashtags span {
+    background: var(--bg-main);
+    color: var(--primary);
+    padding: 0.4rem 1rem;
+    border-radius: var(--radius-full);
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1px solid var(--border);
+}
+
+.announcement-dates {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--secondary-light);
+    border-radius: var(--radius-lg);
+}
+
+.announcement-dates h3 {
+    color: var(--primary-dark);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.announcement-dates h3 i {
+    color: var(--secondary);
+    margin-left: 0.5rem;
+}
+
+.dates-grid {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.date-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    padding: 1rem 1.5rem;
+    box-shadow: var(--shadow-sm);
+    border: 2px solid var(--secondary);
+    min-width: 130px;
+}
+
+.date-card i {
+    font-size: 1.5rem;
+    color: var(--primary);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.date-card span {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.3rem;
+}
+
+.date-card strong {
+    font-size: 1.3rem;
+    color: var(--primary-dark);
+}
+
+.announcement-time {
+    font-size: 1.1rem !important;
+    color: var(--text-primary) !important;
+    font-weight: 700;
+}
+
+.announcement-time i {
+    color: var(--accent);
+    margin-left: 0.5rem;
+}
+
+/* التجاوب لقسم الإعلانات */
+@media (max-width: 768px) {
+    .announcement-title {
+        font-size: 1.5rem;
+    }
+    
+    .announcement-content {
+        padding: 1.5rem;
+    }
+    
+    .announcement-intro {
+        font-size: 1rem;
+    }
+    
+    .announcement-list li {
+        font-size: 0.95rem;
+    }
+    
+    .dates-grid {
+        gap: 1rem;
+    }
+    
+    .date-card {
+        min-width: 110px;
+        padding: 0.8rem 1rem;
+    }
+}
