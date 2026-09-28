@@ -3,873 +3,579 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>دار الفرقان لتعليم القرآن | مشتول السوق</title>
-    
-    <!-- Font Awesome للأيقونات -->
+    <meta name="description" content="دار الفرقان لتعليم القرآن الكريم بمشتول السوق - فرعان لخدمة أبنائكم">
+    <title>دار الفرقان | مشتول السوق</title>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    
-    <!-- ملف التنسيقات -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Amiri+Quran&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- شريط تقدم القراءة -->
-    <div class="reading-progress" id="readingProgress"></div>
-    
-    <!-- زر العودة للأعلى -->
-    <button id="scrollTopBtn" aria-label="العودة للأعلى">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-    
-    <!-- زر واتساب عائم -->
-    <a href="https://wa.me/201061255635" class="whatsapp-float" target="_blank" aria-label="تواصل واتساب">
-        <i class="fab fa-whatsapp"></i>
-    </a>
 
-    <!-- ==================== NAVBAR ==================== -->
-    <nav class="navbar">
-        <div class="container nav-container">
-            <a href="#home" class="brand">
-                <div class="logo-placeholder">
-                    <img src="logo.jpg" alt="شعار دار الفرقان" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <i class="fas fa-quran" style="display: none;"></i>
-                </div>
-                <div class="brand-text">
-                    <span class="brand-name">دار الفرقان</span>
-                    <span class="brand-sub">لتعليم القرآن الكريم</span>
-                </div>
+    <!-- ===== Overlay للموبايل ===== -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- ===== Sidebar ===== -->
+    <aside class="sidebar" id="sidebar">
+        <!-- Brand -->
+        <div class="sidebar-brand">
+            <div class="logo-box">
+                <img src="logo.jpg" alt="شعار" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <i class="fas fa-quran" style="display:none;"></i>
+            </div>
+            <div class="brand-text">
+                <span class="brand-name">دار الفرقان</span>
+                <span class="brand-sub">لتعليم القرآن الكريم</span>
+            </div>
+            <button class="sidebar-close" id="sidebarClose" aria-label="إغلاق">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="sidebar-actions">
+            <a href="https://goootoo700-cmyk.github.io/Monitoring-the-Al-Furqan-children/"
+               target="_blank" rel="noopener" class="action-btn action-inquiry">
+                <i class="fas fa-magnifying-glass"></i>
+                <span>الاستعلام عن الطالب</span>
             </a>
-            
-            <button class="menu-toggle" id="menuToggle" aria-label="القائمة">
+            <button class="action-btn action-register" data-page="registration">
+                <i class="fas fa-user-plus"></i>
+                <span>تسجيل طفل جديد</span>
+            </button>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="sidebar-nav">
+            <span class="nav-label">التنقل</span>
+            <ul>
+                <li><a href="#" data-page="home" class="active"><i class="fas fa-house"></i> <span>الرئيسية</span></a></li>
+                <li><a href="#" data-page="announcement"><i class="fas fa-bullhorn"></i> <span>الإعلانات</span></a></li>
+                <li><a href="#" data-page="about"><i class="fas fa-users"></i> <span>من نحن</span></a></li>
+                <li><a href="#" data-page="video"><i class="fas fa-circle-play"></i> <span>الفيديو التعريفي</span></a></li>
+                <li><a href="#" data-page="programs"><i class="fas fa-book"></i> <span>البرامج</span></a></li>
+                <li><a href="#" data-page="activities"><i class="fas fa-palette"></i> <span>الأنشطة</span></a></li>
+                <li><a href="#" data-page="courses"><i class="fas fa-graduation-cap"></i> <span>الدورات</span></a></li>
+                <li><a href="#" data-page="fees"><i class="fas fa-coins"></i> <span>المصروفات</span></a></li>
+                <li><a href="#" data-page="branches"><i class="fas fa-location-dot"></i> <span>الفروع</span></a></li>
+                <li><a href="#" data-page="gallery"><i class="fas fa-images"></i> <span>المعرض</span></a></li>
+                <li><a href="#" data-page="complaints"><i class="fas fa-comment-dots"></i> <span>الشكاوى والمقترحات</span></a></li>
+                <li><a href="#" data-page="contact"><i class="fas fa-envelope"></i> <span>تواصل معنا</span></a></li>
+            </ul>
+        </nav>
+
+        <!-- Footer of Sidebar -->
+        <div class="sidebar-footer">
+            <button class="dark-toggle" id="darkToggle" aria-label="الوضع الداكن">
+                <i class="fas fa-moon"></i>
+                <span>الوضع الليلي</span>
+            </button>
+            <p class="sidebar-credit">Design &amp; Development:<br><strong>Youssef, Abdelrahman</strong></p>
+        </div>
+    </aside>
+
+    <!-- ===== Main Area ===== -->
+    <main class="main-area">
+
+        <!-- Topbar (mobile) -->
+        <header class="topbar">
+            <button class="menu-btn" id="menuBtn" aria-label="القائمة">
                 <i class="fas fa-bars"></i>
             </button>
-            
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#home" class="active">الرئيسية</a></li>
-                <li><a href="#announcement">الإعلانات</a></li>
-                <li><a href="#about">من نحن</a></li>
-                <li><a href="#programs">البرامج</a></li>
-                <li><a href="#activities">الأنشطة</a></li>
-                <li><a href="#courses">الدورات</a></li>
-                <li><a href="#fees">المصروفات</a></li>
-                <li><a href="#tracking">متابعة طفلي</a></li>
-                <li><a href="#branches">الفروع</a></li>
-                <li><a href="#seminars">الندوات</a></li>
-                <li><a href="#safety">الأمان</a></li>
-                <li><a href="#health">الرعاية</a></li>
-                <li><a href="#gallery">المعرض</a></li>
-                <li><a href="#complaints">الشكاوى</a></li>
-                <li><a href="#registration">التسجيل</a></li>
-                <li><a href="#contact">تواصل</a></li>
-            </ul>
-            
-            <button class="dark-toggle" id="darkToggle" aria-label="تبديل الوضع الداكن">
-                <i class="fas fa-moon"></i>
-            </button>
-        </div>
-    </nav>
+            <span class="topbar-title" id="topbarTitle">الرئيسية</span>
+            <a href="https://wa.me/201061255635" target="_blank" class="topbar-wa">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </header>
 
-    <!-- ==================== HERO ==================== -->
-    <section class="hero" id="home">
-        <div class="container hero-container">
-            <div class="hero-content">
-                <span class="hero-badge">📖 دار الفرقان لتعليم القرآن الكريم</span>
+        <!-- ============ PAGE: HOME ============ -->
+        <section class="page active" id="page-home">
+            <div class="hero">
+                <span class="hero-badge"><i class="fas fa-star"></i> دار الفرقان لتعليم القرآن الكريم</span>
                 <h1 class="hero-title">
-                    نعلم أبناءكم
+                    نُعلّم أبناءكم
                     <span class="highlight">كتاب الله</span>
-                    بأسلوب ممتع
+                    بروحٍ جديدة
                 </h1>
-                <p class="hero-description">
-                    دار الفرقان لتعليم القرآن الكريم بمشتول السوق - فرعان لخدمة أبنائكم. نقدم تعليماً قرآنياً متميزاً مع مناهج تعليمية متكاملة وأنشطة ترفيهية.
+                <p class="hero-desc">
+                    دار الفرقان بمشتول السوق — فرعان لخدمة أبنائكم. تعليم قرآني متميّز، بيئة آمنة، وأنشطة تُحبّب الطفل في الحفظ والتعلّم.
                 </p>
+
                 <div class="hero-buttons">
-                    <a href="#programs" class="btn btn-primary">
-                        <i class="fas fa-star"></i>
-                        تعرّف على برامجنا
-                    </a>
-                    <a href="#tracking" class="btn btn-outline">
-                        <i class="fas fa-chart-line"></i>
-                        متابعة مستوى طفلي
+                    <button class="btn btn-primary" data-page="programs">
+                        <i class="fas fa-book-open"></i>
+                        تعرّف على البرامج
+                    </button>
+                    <a href="https://goootoo700-cmyk.github.io/Monitoring-the-Al-Furqan-children/"
+                       target="_blank" rel="noopener" class="btn btn-gold">
+                        <i class="fas fa-magnifying-glass"></i>
+                        الاستعلام عن الطالب
                     </a>
                 </div>
-                
+
                 <div class="hero-stats">
-                    <div class="stat">
-                        <span class="stat-number">+500</span>
-                        <span class="stat-label">طالب وطالبة</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">+20</span>
-                        <span class="stat-label">معلم ومعلمة</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">فرعان</span>
-                        <span class="stat-label">في مشتول السوق</span>
-                    </div>
+                    <div class="stat"><span class="stat-number">+500</span><span class="stat-label">طالب وطالبة</span></div>
+                    <div class="stat"><span class="stat-number">+20</span><span class="stat-label">معلم ومعلمة</span></div>
+                    <div class="stat"><span class="stat-number">فرعان</span><span class="stat-label">في مشتول السوق</span></div>
                 </div>
             </div>
-            
-            <div class="hero-image-wrapper">
-                <img src="logo.jpg" alt="تعليم القرآن للأطفال" class="hero-image" onerror="this.src='https://images.unsplash.com/photo-1609599006353-e629aaabfeae?w=600&h=600&fit=crop'">
-                <div class="floating-card floating-card-1">
-                    <i class="fas fa-quran"></i>
-                    <span>تعليم قرآن</span>
+
+            <div class="home-cards">
+                <div class="home-card" data-page="about">
+                    <i class="fas fa-users"></i>
+                    <h3>من نحن</h3>
+                    <p>تعرّف على رؤيتنا ورسالتنا وقيمنا</p>
                 </div>
-                <div class="floating-card floating-card-2">
-                    <i class="fas fa-heart"></i>
-                    <span>بيئة آمنة</span>
+                <div class="home-card" data-page="programs">
+                    <i class="fas fa-book"></i>
+                    <h3>برامجنا</h3>
+                    <p>قرآن، نور البيان، حساب، حاسب</p>
+                </div>
+                <div class="home-card" data-page="fees">
+                    <i class="fas fa-coins"></i>
+                    <h3>المصروفات</h3>
+                    <p>3,200 جنيه على 3 أقساط</p>
+                </div>
+                <div class="home-card" data-page="branches">
+                    <i class="fas fa-location-dot"></i>
+                    <h3>الفروع</h3>
+                    <p>فرعان في مشتول السوق</p>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- ==================== قسم الإعلانات ==================== -->
-<section class="section announcement-section" id="announcement">
-    <div class="container">
-        <div class="announcement-wrapper">
-            <div class="announcement-badge">
-                <i class="fas fa-megaphone"></i>
-                <span>إعلان هام</span>
+        </section>
+
+        <!-- ============ PAGE: ANNOUNCEMENT ============ -->
+        <section class="page" id="page-announcement">
+            <div class="page-header">
+                <span class="page-subtitle">إعلان هام</span>
+                <h1 class="page-title">يوم التعارف في دار الفرقان KG</h1>
             </div>
-            
-            <h2 class="announcement-title">
-                يوم التعارف في "دار الفرقان بمشتول السوق KG" ❤️
-            </h2>
-            
-            <div class="announcement-content">
-                <p class="announcement-intro">
-                    عارفين إنكم قلقانين... وإحنا هنا عشان نطمنكم
-                    <br>
-                    المقابلة مش اختبار لطفلك 😊
+
+            <div class="card announcement-card">
+                <div class="announcement-icon"><i class="fas fa-bullhorn"></i></div>
+
+                <p class="announcement-lead">
+                    عارفين إنكم قلقانين... وإحنا هنا عشان نطمنكم.<br>
+                    <strong>المقابلة مش اختبار لطفلك 😊</strong>
                 </p>
-                
-                <div class="announcement-highlight">
-                    <p>🔥 المقابلة هي "تعارف" عشان نعرف:</p>
-                </div>
-                
-                <ol class="announcement-list">
-                    <li>
-                        <span class="list-number">1</span>
-                        <span>شخصية طفلك ونقاط قوته</span>
-                    </li>
-                    <li>
-                        <span class="list-number">2</span>
-                        <span>مستواه الحالي عشان نبدأ معاه صح</span>
-                    </li>
-                    <li>
-                        <span class="list-number">3</span>
-                        <span>ازاي نخليه يحب الحضانة من أول يوم</span>
-                    </li>
-                </ol>
-                
-                <p class="announcement-method">
-                    بيتم من خلال: <strong>لعب + رسم + هدية بسيطة</strong>
-                    <br>
-                    بدون أي ضغط أو توتر 🎈
+
+                <h3 class="mini-title">المقابلة هي "تعارف" عشان نعرف:</h3>
+                <ul class="num-list">
+                    <li><span>1</span> شخصية طفلك ونقاط قوته</li>
+                    <li><span>2</span> مستواه الحالي عشان نبدأ معاه صح</li>
+                    <li><span>3</span> إزاي نخليه يحب الحضانة من أول يوم</li>
+                </ul>
+
+                <p class="highlight-box">
+                    بيتم من خلال: <strong>لعب + رسم + هدية بسيطة</strong><br>بدون أي ضغط أو توتر 🎈
                 </p>
-                
-                <div class="announcement-extras">
-                    <p>🔥 وكمان نحدد مواعيد وأماكن الباصات.</p>
-                    <p>🔥 وكمان نستلم الزي الجديد 🤸</p>
-                    <p>🔥 والبطل يتعرف على بيته الجديد إن شاء الله.</p>
+
+                <div class="extras">
+                    <p><i class="fas fa-bus"></i> نحدّد مواعيد وأماكن الباصات.</p>
+                    <p><i class="fas fa-shirt"></i> نستلم الزي الجديد.</p>
+                    <p><i class="fas fa-school"></i> البطل يتعرّف على بيته الجديد إن شاء الله.</p>
                 </div>
-                
-                <div class="announcement-goal">
-                    <p>
-                        <strong>هدفنا واحد:</strong> نختار الأفضل لطفلك ونبدأ معاه رحلة الحفظ والتميز
-                    </p>
-                    <p class="announcement-slogan">
-                        "نستقبلكم بابتسامة.. ونودعكم بتفوق"
-                    </p>
-                    <p class="announcement-message">
-                        رسالتنا 👈 <strong>خير البناء..... بناء الأبناء</strong>
-                    </p>
+
+                <div class="goal-box">
+                    <p><strong>هدفنا واحد:</strong> نختار الأفضل لطفلك ونبدأ معاه رحلة الحفظ والتميّز.</p>
+                    <p class="slogan">"نستقبلكم بابتسامة.. ونودّعكم بتفوّق"</p>
                 </div>
-                
-                <div class="announcement-hashtags">
-                    <span>#المقابلة_الشخصية</span>
-                    <span>#دار_الفرقان</span>
-                    <span>#قبول_الحضانة</span>
+
+                <h3 class="mini-title"><i class="fas fa-calendar-check"></i> موعد المقابلات</h3>
+                <div class="dates-row">
+                    <div class="date-box"><span>الثلاثاء</span><strong>8/25</strong></div>
+                    <div class="date-box"><span>الخميس</span><strong>8/26</strong></div>
                 </div>
-                
-                <div class="announcement-dates">
-                    <h3><i class="fas fa-calendar-check"></i> موعد المقابلات</h3>
-                    <div class="dates-grid">
-                        <div class="date-card">
-                            <i class="fas fa-calendar-day"></i>
-                            <span>الثلاثاء</span>
-                            <strong>8/25</strong>
-                        </div>
-                        <div class="date-card">
-                            <i class="fas fa-calendar-day"></i>
-                            <span>الخميس</span>
-                            <strong>8/26</strong>
-                        </div>
-                    </div>
-                    <p class="announcement-time">
-                        <i class="fas fa-clock"></i>
-                        من التاسعة صباحاً وحتى الثانية عشرة ظهراً
-                    </p>
-                </div>
-                
-                <a href="https://wa.me/201061255635?text=السلام عليكم، أريد الاستفسار عن يوم التعارف في دار الفرقان" class="btn btn-primary btn-block" target="_blank" rel="noopener">
-                    <i class="fab fa-whatsapp"></i>
-                    استفسر عن يوم التعارف
+                <p class="time-note"><i class="fas fa-clock"></i> من 9 صباحاً حتى 12 ظهراً</p>
+
+                <a href="https://wa.me/201061255635?text=السلام عليكم، أريد الاستفسار عن يوم التعارف"
+                   target="_blank" rel="noopener" class="btn btn-primary btn-block">
+                    <i class="fab fa-whatsapp"></i> استفسر عن يوم التعارف
                 </a>
             </div>
-        </div>
-    </div>
-</section>
+        </section>
 
-    <!-- ==================== من نحن ==================== -->
-    <section class="section about-section" id="about">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">تعرف علينا</span>
-                <h2 class="section-title">من نحن</h2>
-                <p class="section-desc">دار الفرقان لتعليم القرآن الكريم بمشتول السوق - صرح تعليمي متخصص في تحفيظ القرآن ورياض الأطفال والمناهج التعليمية.</p>
+        <!-- ============ PAGE: ABOUT ============ -->
+        <section class="page" id="page-about">
+            <div class="page-header">
+                <span class="page-subtitle">تعرف علينا</span>
+                <h1 class="page-title">من نحن</h1>
+                <p class="page-desc">صرح تعليمي متخصص في تحفيظ القرآن ورياض الأطفال والمناهج التعليمية.</p>
             </div>
-            
-            <div class="about-grid">
-                <div class="about-card">
-                    <div class="about-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
+
+            <div class="grid-3">
+                <div class="card about-card">
+                    <div class="card-icon"><i class="fas fa-eye"></i></div>
                     <h3>رؤيتنا</h3>
-                    <p>تخريج جيل حافظ لكتاب الله، قادرا على الدخول للمرحلة الإبتدائية دون أي عوائق. متخلق بأخلاقه، متميز في تعليمه.</p>
+                    <p>تخريج جيل حافظ لكتاب الله، قادر على الدخول للمرحلة الابتدائية دون عوائق، متخلّق بأخلاقه، متميّز في تعليمه.</p>
                 </div>
-                <div class="about-card">
-                    <div class="about-icon">
-                        <i class="fas fa-bullseye"></i>
-                    </div>
+                <div class="card about-card">
+                    <div class="card-icon"><i class="fas fa-bullseye"></i></div>
                     <h3>رسالتنا</h3>
-                    <p>شعارنا خير البناء بناء الأبناء</p>
+                    <p>شعارنا: <strong>خير البناء... بناء الأبناء</strong></p>
                 </div>
-                <div class="about-card">
-                    <div class="about-icon">
-                        <i class="fas fa-gem"></i>
-                    </div>
+                <div class="card about-card">
+                    <div class="card-icon"><i class="fas fa-gem"></i></div>
                     <h3>قيمنا</h3>
                     <p>الإخلاص، الأمانة، الحب، الإتقان، والاحترام المتبادل.</p>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- ==================== الفيديو التعريفي ==================== -->
-<section class="section video-section" id="video">
-    <div class="container">
-        <div class="section-header">
-            <span class="section-subtitle">شاهدنا</span>
-            <h2 class="section-title">فيديو تعريفي عن الدار</h2>
-            <p class="section-desc">تعرف على دار الفرقان من خلال هذا الفيديو</p>
-        </div>
-        
-        <div class="video-container">
+        </section>
+
+        <!-- ============ PAGE: VIDEO ============ -->
+        <section class="page" id="page-video">
+            <div class="page-header">
+                <span class="page-subtitle">شاهدنا</span>
+                <h1 class="page-title">فيديو تعريفي</h1>
+                <p class="page-desc">جولة سريعة تعرّفك على دار الفرقان وفصولنا وأنشطتنا.</p>
+            </div>
+
             <div class="video-wrapper">
-                <video id="introVideo" controls poster="images/video-poster.jpg" preload="metadata">
-                    <source src="WhatsApp Video 2026-08-20 at 7.51.35 PM.mp4" type="video/mp4">
-                    <source src="WhatsApp Video 2026-08-20 at 7.51.35 PM.mp4" type="video/webm">
+                <video controls preload="metadata" poster="logo.jpg">
+                    <source src="intro.mp4" type="video/mp4">
                     متصفحك لا يدعم تشغيل الفيديو
                 </video>
-                
-                <!-- زر تشغيل مخصص -->
-                <button class="video-play-btn" id="videoPlayBtn" aria-label="تشغيل الفيديو">
-                    <i class="fas fa-play"></i>
-                </button>
             </div>
-            
-            <div class="video-info">
-                <h3><i class="fas fa-info-circle"></i> عن هذا الفيديو</h3>
-                <p>جولة تعريفية داخل دار الفرقان لتعليم القرآن الكريم، تعرف على فصولنا ومعلمينا وأنشطتنا.</p>
-                
-                <div class="video-features">
-                    <span><i class="fas fa-check-circle"></i> جودة عالية</span>
-                    <span><i class="fas fa-check-circle"></i> مدة قصيرة</span>
-                    <span><i class="fas fa-check-circle"></i> محتوى تعريفي</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+        </section>
 
-    <!-- ==================== البرامج التعليمية ==================== -->
-    <section class="section programs-section" id="programs">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">مناهج متخصصة</span>
-                <h2 class="section-title">برامجنا التعليمية</h2>
-                <p class="section-desc">نقدم برامج تعليمية شاملة مصممة بعناية لتناسب أعمار الأطفال وقدراتهم.</p>
+        <!-- ============ PAGE: PROGRAMS ============ -->
+        <section class="page" id="page-programs">
+            <div class="page-header">
+                <span class="page-subtitle">مناهج متخصصة</span>
+                <h1 class="page-title">برامجنا التعليمية</h1>
+                <p class="page-desc">برامج مصمّمة بعناية لتناسب أعمار الأطفال وقدراتهم.</p>
             </div>
-            
-            <div class="programs-grid">
-                <div class="program-card">
-                    <div class="program-icon quran-icon">
-                        <i class="fas fa-quran"></i>
-                    </div>
+
+            <div class="grid-3">
+                <div class="card program-card">
+                    <div class="card-icon icon-quran"><i class="fas fa-quran"></i></div>
                     <h3>القرآن الكريم</h3>
-                    <p>تعليم القرآن الكريم وأحكام التجويد بطريقة مبسطة ومناسبة للأطفال.</p>
-                    <span class="program-tag">حفظ وتجويد</span>
+                    <p>تعليم القرآن وأحكام التجويد بطريقة مبسطة ومناسبة للأطفال.</p>
+                    <span class="tag">حفظ وتجويد</span>
                 </div>
-                
-                <div class="program-card">
-                    <div class="program-icon noor-icon">
-                        <i class="fas fa-lightbulb"></i>
-                    </div>
+                <div class="card program-card">
+                    <div class="card-icon icon-noor"><i class="fas fa-lightbulb"></i></div>
                     <h3>منهج نور البيان</h3>
-                    <p>تعليم القراءة والكتابة بطريقة مبسطة وتأسيس الطفل بشكل تدريجي.</p>
-                    <span class="program-tag">تأسيس لغوي</span>
+                    <p>تعليم القراءة والكتابة وتأسيس الطفل بشكل تدريجي.</p>
+                    <span class="tag">تأسيس لغوي</span>
                 </div>
-                
-                <div class="program-card">
-                    <div class="program-icon math-icon">
-                        <i class="fas fa-calculator"></i>
-                    </div>
+                <div class="card program-card">
+                    <div class="card-icon icon-math"><i class="fas fa-calculator"></i></div>
                     <h3>الحساب</h3>
                     <p>تعليم أساسيات الحساب بطريقة سهلة ومناسبة لعمر الطفل.</p>
-                    <span class="program-tag">أساسيات</span>
+                    <span class="tag">أساسيات</span>
                 </div>
-                
-                <div class="program-card">
-                    <div class="program-icon mental-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
+                <div class="card program-card">
+                    <div class="card-icon icon-mental"><i class="fas fa-brain"></i></div>
                     <h3>الحساب الذهني</h3>
-                    <p>تنمية سرعة التفكير والحساب وتدريب الطفل على التركيز والاستيعاب.</p>
-                    <span class="program-tag">تركيز وذكاء</span>
+                    <p>تنمية سرعة التفكير والتركيز والاستيعاب عند الطفل.</p>
+                    <span class="tag">تركيز وذكاء</span>
                 </div>
-                
-                <div class="program-card">
-                    <div class="program-icon english-math-icon">
-                        <i class="fas fa-percentage"></i>
-                    </div>
+                <div class="card program-card">
+                    <div class="card-icon icon-math-en"><i class="fas fa-percentage"></i></div>
                     <h3>Math</h3>
-                    <p>تعليم مبادئ الرياضيات بأسلوب مبسط وتفاعلي باللغة الإنجليزية.</p>
-                    <span class="program-tag">لغة إنجليزية</span>
+                    <p>تعليم مبادئ الرياضيات بأسلوب مبسّط وتفاعلي بالإنجليزية.</p>
+                    <span class="tag">لغة إنجليزية</span>
                 </div>
-                
-                <div class="program-card">
-                    <div class="program-icon computer-icon">
-                        <i class="fas fa-laptop"></i>
-                    </div>
+                <div class="card program-card">
+                    <div class="card-icon icon-computer"><i class="fas fa-laptop"></i></div>
                     <h3>الحاسب الآلي</h3>
-                    <p>تعليم أساسيات الحاسب الآلي والتكنولوجيا بطريقة ممتعة وآمنة.</p>
-                    <span class="program-tag">تكنولوجيا</span>
+                    <p>تعليم أساسيات الحاسب الآلي والتكنولوجيا بطريقة آمنة.</p>
+                    <span class="tag">تكنولوجيا</span>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ==================== الأنشطة ==================== -->
-    <section class="section activities-section" id="activities">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">تعلم باللعب</span>
-                <h2 class="section-title">الأنشطة</h2>
-                <p class="section-desc">أنشطة متنوعة تساعد على تنمية مهارات الطفل الإبداعية والاجتماعية.</p>
+        <!-- ============ PAGE: ACTIVITIES ============ -->
+        <section class="page" id="page-activities">
+            <div class="page-header">
+                <span class="page-subtitle">تعلّم باللعب</span>
+                <h1 class="page-title">الأنشطة</h1>
+                <p class="page-desc">أنشطة تنمّي مهارات الطفل الإبداعية والاجتماعية.</p>
             </div>
-            
-            <div class="activities-grid">
-                <div class="activity-card">
-                    <img src="gallery-9.jpg" alt="تنمية المهارات">
-                    <div class="activity-overlay">
-                        <i class="fas fa-puzzle-piece"></i>
-                    </div>
-                </div>
-                
-                <div class="activity-card">
-                    <img src="gallery-10.jpg" alt="الرسم والتلوين" onerror="this.src='https://images.unsplash.com/photo-1596464716127-f2a82984de30?w=400&h=300&fit=crop'">
-                    <div class="activity-overlay">
-                        <i class="fas fa-palette"></i>
-                    </div>
-                </div>
-                
-                <div class="activity-card">
-                    <img src="gallery-11.jpg" alt="ألعاب تعليمية" onerror="this.src='https://images.unsplash.com/photo-1607453998774-d533f65dac99?w=400&h=300&fit=crop'">
-                    <div class="activity-overlay">
-                        <i class="fas fa-gamepad"></i>
-                    </div>
-                </div>
-                
-                <div class="activity-card">
-                    <img src="gallery-9.jpg" alt="أنشطة جماعية" onerror="this.src='https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&h=300&fit=crop'">
-                    <div class="activity-overlay">
-                        <i class="fas fa-users"></i>
-                    </div>
-                </div>
-                
-                <div class="activity-card">
-                    <img src="images/activity-trips.jpg" alt="رحلات ترفيهية" onerror="this.src='https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?w=400&h=300&fit=crop'">
-                    <div class="activity-overlay">
-                        <i class="fas fa-bus"></i>
-                        <h3>رحلات ترفيهية</h3>
-                    </div>
-                    <p>رحلات تعليمية وترفيهية آمنة وممتعة للأطفال.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- ==================== الدورات التدريبية ==================== -->
-    <section class="section courses-section" id="courses">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">تطوير مهني</span>
-                <h2 class="section-title">الدورات التدريبية</h2>
+            <div class="grid-activities">
+                <div class="activity-card">
+                    <img src="gallery-9.jpg" alt="تنمية المهارات" onerror="this.src='https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400&h=300&fit=crop'">
+                    <span>تنمية المهارات</span>
+                </div>
+                <div class="activity-card">
+                    <img src="gallery-10.jpg" alt="الرسم" onerror="this.src='https://images.unsplash.com/photo-1596464716127-f2a82984de30?w=400&h=300&fit=crop'">
+                    <span>الرسم والتلوين</span>
+                </div>
+                <div class="activity-card">
+                    <img src="gallery-11.jpg" alt="ألعاب" onerror="this.src='https://images.unsplash.com/photo-1607453998774-d533f65dac99?w=400&h=300&fit=crop'">
+                    <span>ألعاب تعليمية</span>
+                </div>
+                <div class="activity-card">
+                    <img src="gallery-12.jpg" alt="جماعية" onerror="this.src='https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&h=300&fit=crop'">
+                    <span>أنشطة جماعية</span>
+                </div>
+                <div class="activity-card">
+                    <img src="gallery-13.jpg" alt="رحلات" onerror="this.src='https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?w=400&h=300&fit=crop'">
+                    <span>رحلات ترفيهية</span>
+                </div>
+                <div class="activity-card">
+                    <img src="gallery-14.jpg" alt="مسابقات" onerror="this.src='https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=400&h=300&fit=crop'">
+                    <span>مسابقات وجوائز</span>
+                </div>
             </div>
-            
-            <div class="course-card">
-                <div class="course-content">
+        </section>
+
+        <!-- ============ PAGE: COURSES ============ -->
+        <section class="page" id="page-courses">
+            <div class="page-header">
+                <span class="page-subtitle">تطوير مهني</span>
+                <h1 class="page-title">الدورات التدريبية</h1>
+            </div>
+
+            <div class="card course-card">
+                <div class="course-image">
+                    <img src="course-teachers.jpg" alt="تدريب معلمات"
+                         onerror="this.src='https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=600&h=500&fit=crop'">
+                </div>
+                <div class="course-body">
                     <h3>دورة إعداد معلمات الروضة</h3>
                     <p>دورة متخصصة لإعداد وتأهيل معلمات الروضة على أحدث الأساليب التربوية. يتم اختيار المتميزات من المتدربات للعمل بالدار.</p>
-                    <ul class="course-features">
+                    <ul class="check-list">
                         <li><i class="fas fa-check"></i> تأهيل تربوي متكامل</li>
                         <li><i class="fas fa-check"></i> تدريب عملي مكثف</li>
                         <li><i class="fas fa-check"></i> فرصة للتوظيف</li>
                     </ul>
-                    <a href="https://wa.me/201061255635?text=أرغب في التسجيل في دورة إعداد معلمات الروضة" class="btn btn-primary" target="_blank">
-                        <i class="fab fa-whatsapp"></i>
-                        التسجيل عبر واتساب
-                    </a>
-                </div>
-                <div class="course-image">
-                    <img src="images/course-teachers.jpg" alt="تدريب معلمات" onerror="this.src='https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=500&h=400&fit=crop'">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== المصروفات ==================== -->
-    <section class="section fees-section" id="fees">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">الاستثمار في تعليم طفلك</span>
-                <h2 class="section-title">المصروفات الدراسية</h2>
-                <p class="section-desc">مصروفات موحدة لجميع الصفوف - 3200 جنيه على أقساط</p>
-            </div>
-            
-            <div class="fees-container">
-                <div class="fees-card">
-                    <div class="fees-header">
-                        <h3>المصروفات السنوية</h3>
-                        <div class="fees-total">
-                            <span class="fees-amount">3,200</span>
-                            <span class="fees-currency">جنيه</span>
-                        </div>
-                        <p style="color: var(--text-secondary); margin-top: 0.5rem;">موحدة لجميع الصفوف</p>
-                    </div>
-                    
-                    <div class="fees-divider"></div>
-                    
-                    <div class="installments-list">
-                        <div class="installment-item">
-                            <div class="installment-icon">
-                                <i class="fas fa-hand-holding-usd"></i>
-                            </div>
-                            <div class="installment-info">
-                                <h4>المقدم</h4>
-                                <p>عند التسجيل</p>
-                            </div>
-                            <div class="installment-amount">1,100 جنيه</div>
-                        </div>
-                        
-                        <div class="installment-item">
-                            <div class="installment-icon">
-                                <i class="fas fa-calendar-check"></i>
-                            </div>
-                            <div class="installment-info">
-                                <h4>الدفعة الأولى</h4>
-                                <p>منتصف العام الدراسي</p>
-                            </div>
-                            <div class="installment-amount">1,050 جنيه</div>
-                        </div>
-                        
-                        <div class="installment-item">
-                            <div class="installment-icon">
-                                <i class="fas fa-calendar-alt"></i>
-                            </div>
-                            <div class="installment-info">
-                                <h4>الدفعة الثانية</h4>
-                                <p>نهاية العام الدراسي</p>
-                            </div>
-                            <div class="installment-amount">1,050 جنيه</div>
-                        </div>
-                    </div>
-                    
-                    <a href="https://wa.me/201061255635?text=السلام عليكم، أريد الاستفسار عن المصروفات الدراسية" class="btn btn-primary btn-block" target="_blank">
-                        <i class="fab fa-whatsapp"></i>
-                        استفسر عن المصروفات
+                    <a href="https://wa.me/201061255635?text=أرغب في التسجيل في دورة إعداد معلمات الروضة"
+                       target="_blank" rel="noopener" class="btn btn-primary">
+                        <i class="fab fa-whatsapp"></i> التسجيل عبر واتساب
                     </a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ==================== متابعة مستوى الطفل ==================== -->
-    <section class="section tracking-section" id="tracking">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">لأولياء الأمور</span>
-                <h2 class="section-title">متابعة مستوى طفلي</h2>
-                <p class="section-desc">أدخل الكود الخاص بطفلك لمتابعة مستواه التعليمي بشكل دوري.</p>
+        <!-- ============ PAGE: FEES ============ -->
+        <section class="page" id="page-fees">
+            <div class="page-header">
+                <span class="page-subtitle">الاستثمار في التعليم</span>
+                <h1 class="page-title">المصروفات الدراسية</h1>
+                <p class="page-desc">مصروفات موحّدة لجميع الصفوف</p>
             </div>
-            
-            <div class="tracking-wrapper">
-                <div class="tracking-form">
-                    <label for="studentCode">أدخل كود الطالب</label>
-                    <div class="input-group">
-                        <input type="text" id="studentCode" placeholder="مثال: STU1001" maxlength="10">
-                        <button id="trackBtn" class="btn btn-primary">
-                            <i class="fas fa-search"></i>
-                            متابعة
-                        </button>
-                    </div>
-                    <p class="error-message" id="errorMsg"></p>
-                </div>
-                
-                <div class="student-result" id="studentResult">
-                    <div class="result-header">
-                        <i class="fas fa-graduation-cap"></i>
-                        <h3>تقرير متابعة الطالب</h3>
-                    </div>
-                    <table class="result-table">
-                        <tr><th>اسم الطالب</th><td id="sName"></td></tr>
-                        <tr><th>المستوى / الصف</th><td id="sLevel"></td></tr>
-                        <tr><th>المستوى التعليمي</th><td id="sEdu"></td></tr>
-                        <tr><th>مستوى حفظ القرآن</th><td id="sQuran"></td></tr>
-                        <tr><th>مستوى القراءة والكتابة</th><td id="sRead"></td></tr>
-                        <tr><th>مستوى الحساب</th><td id="sMath"></td></tr>
-                        <tr><th>الحساب الذهني</th><td id="sMental"></td></tr>
-                        <tr><th>Math</th><td id="sMathEn"></td></tr>
-                        <tr><th>الحاسب الآلي</th><td id="sComputer"></td></tr>
-                        <tr><th>الرحلات الترفيهية</th><td id="sTrips"></td></tr>
-                        <tr><th>المهارات</th><td id="sSkills"></td></tr>
-                        <tr><th>الحضور والغياب</th><td id="sAttendance"></td></tr>
-                        <tr><th>ملاحظات المعلمة</th><td id="sNotes"></td></tr>
-                        <tr><th>التقييم العام</th><td id="sEval"></td></tr>
-                    </table>
-                    <button id="whatsappParentBtn" class="btn btn-outline" style="margin-top: 1rem;">
-                        <i class="fab fa-whatsapp"></i>
-                        التواصل مع المعلمة
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- ==================== الفروع ==================== -->
-    <section class="section branches-section" id="branches">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">أماكننا</span>
-                <h2 class="section-title">فروعنا</h2>
-                <p class="section-desc">نخدم أبنائكم في فرعين بمشتول السوق</p>
-            </div>
-            
-            <div class="branches-grid">
-                <div class="branch-card">
-                    <div class="branch-icon">
-                        <i class="fas fa-mosque"></i>
+            <div class="fees-card">
+                <div class="fees-head">
+                    <h3>المصروفات السنوية</h3>
+                    <div class="fees-total">
+                        <span class="fees-amount">3,200</span>
+                        <span class="fees-currency">جنيه</span>
                     </div>
+                    <p class="fees-note">موحّدة لجميع الصفوف</p>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="installments">
+                    <div class="installment">
+                        <div class="inst-icon"><i class="fas fa-hand-holding-usd"></i></div>
+                        <div class="inst-info"><h4>المقدم</h4><p>عند التسجيل</p></div>
+                        <div class="inst-amount">1,100 جنيه</div>
+                    </div>
+                    <div class="installment">
+                        <div class="inst-icon"><i class="fas fa-calendar-check"></i></div>
+                        <div class="inst-info"><h4>الدفعة الأولى</h4><p>منتصف العام</p></div>
+                        <div class="inst-amount">1,050 جنيه</div>
+                    </div>
+                    <div class="installment">
+                        <div class="inst-icon"><i class="fas fa-calendar-alt"></i></div>
+                        <div class="inst-info"><h4>الدفعة الثانية</h4><p>نهاية العام</p></div>
+                        <div class="inst-amount">1,050 جنيه</div>
+                    </div>
+                </div>
+
+                <a href="https://wa.me/201061255635?text=أريد الاستفسار عن المصروفات الدراسية"
+                   target="_blank" rel="noopener" class="btn btn-primary btn-block">
+                    <i class="fab fa-whatsapp"></i> استفسر عن المصروفات
+                </a>
+            </div>
+        </section>
+
+        <!-- ============ PAGE: BRANCHES ============ -->
+        <section class="page" id="page-branches">
+            <div class="page-header">
+                <span class="page-subtitle">أماكننا</span>
+                <h1 class="page-title">فروعنا</h1>
+                <p class="page-desc">فرعان لخدمة أبنائكم بمشتول السوق</p>
+            </div>
+
+            <div class="grid-2">
+                <div class="card branch-card">
+                    <div class="card-icon"><i class="fas fa-mosque"></i></div>
                     <h3>الفرع الأول</h3>
-                    <p class="branch-address">
-                        <i class="fas fa-map-marker-alt"></i>
-                        حي عز الدين - بجوار مدرسة أبو بكر الصديق والتأمينات - مشتول السوق - شرقية
-                    </p>
-                    <a href="https://wa.me/201061255635?text=أرغب في معرفة موقع الفرع الأول" class="btn btn-outline" target="_blank">
-                        <i class="fab fa-whatsapp"></i>
-                        استفسر عن الموقع
+                    <p><i class="fas fa-map-marker-alt"></i> حي عز الدين — بجوار مدرسة أبو بكر الصديق والتأمينات — مشتول السوق — شرقية</p>
+                    <a href="https://wa.me/201061255635?text=أرغب في معرفة موقع الفرع الأول"
+                       target="_blank" rel="noopener" class="btn btn-outline">
+                        <i class="fab fa-whatsapp"></i> استفسر عن الموقع
                     </a>
                 </div>
-                
-                <div class="branch-card">
-                    <div class="branch-icon">
-                        <i class="fas fa-building"></i>
-                    </div>
+                <div class="card branch-card">
+                    <div class="card-icon"><i class="fas fa-building"></i></div>
                     <h3>الفرع الثاني</h3>
-                    <p class="branch-address">
-                        <i class="fas fa-map-marker-alt"></i>
-                        المنير الجديدة - مركز مشتول السوق - شرقية
-                    </p>
-                    <a href="https://wa.me/201061255635?text=أرغب في معرفة موقع الفرع الثاني" class="btn btn-outline" target="_blank">
-                        <i class="fab fa-whatsapp"></i>
-                        استفسر عن الموقع
+                    <p><i class="fas fa-map-marker-alt"></i> المنير الجديدة — مركز مشتول السوق — شرقية</p>
+                    <a href="https://wa.me/201061255635?text=أرغب في معرفة موقع الفرع الثاني"
+                       target="_blank" rel="noopener" class="btn btn-outline">
+                        <i class="fab fa-whatsapp"></i> استفسر عن الموقع
                     </a>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- ==================== ندوات أولياء الأمور ==================== -->
-    <section class="section seminars-section" id="seminars">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">شراكة مع الأسرة</span>
-                <h2 class="section-title">ندوات أولياء الأمور</h2>
-                <p class="section-desc">ننظم لقاءات وندوات توعوية وتربوية دورية لمساعدة أولياء الأمور على متابعة أطفالهم.</p>
+            <div class="card safety-card">
+                <div class="card-icon"><i class="fas fa-shield-halved"></i></div>
+                <h3>الأمان والاطمئنان</h3>
+                <p>المكان مجهّز بنظام كاميرات مراقبة داخلي للمساعدة في توفير بيئة آمنة ومتابعة المكان والاطمئنان على الأطفال، مع الالتزام الكامل بمعايير الخصوصية.</p>
             </div>
-            
-            <div class="seminars-grid">
-                <div class="seminar-card">
-                    <i class="fas fa-comments"></i>
-                    <h3>لقاءات شهرية</h3>
-                    <p>مناقشة تقدم الأطفال وتبادل الملاحظات.</p>
-                </div>
-                <div class="seminar-card">
-                    <i class="fas fa-chalkboard-teacher"></i>
-                    <h3>ورش تربوية</h3>
-                    <p>أساليب التعامل الصحيح مع الطفل في المنزل.</p>
-                </div>
-                <div class="seminar-card">
-                    <i class="fas fa-hand-holding-heart"></i>
-                    <h3>استشارات فردية</h3>
-                    <p>جلسات خاصة لمناقشة احتياجات كل طفل.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ==================== الأمان والاطمئنان ==================== -->
-    <section class="section safety-section" id="safety">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">أمانكم أولويتنا</span>
-                <h2 class="section-title">الأمان والاطمئنان</h2>
+        <!-- ============ PAGE: GALLERY ============ -->
+        <section class="page" id="page-gallery">
+            <div class="page-header">
+                <span class="page-subtitle">لحظات جميلة</span>
+                <h1 class="page-title">معرض الصور</h1>
             </div>
-            
-            <div class="safety-content">
-                <div class="safety-icon">
-                    <i class="fas fa-shield-alt"></i>
-                </div>
-                <p>المكان مجهز بنظام كاميرات مراقبة داخلي للمساعدة في توفير بيئة آمنة ومتابعة المكان والاطمئنان على الأطفال، مع الالتزام الكامل بمعايير الخصوصية.</p>
-            </div>
-        </div>
-    </section>
 
-    <!-- ==================== الرعاية الصحية ==================== -->
-    <section class="section health-section" id="health">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">صحة أطفالنا</span>
-                <h2 class="section-title">الرعاية الصحية</h2>
-                <p class="section-desc">نهتم بصحة الأطفال ونوفر رعاية واهتماماً صحياً داخل المكان، مع متابعة يومية وإجراءات وقائية.</p>
+            <div class="grid-gallery">
+                <div class="gallery-item"><img src="gallery-1.jpg" alt="" onerror="this.src='https://images.unsplash.com/photo-1609599006353-e629aaabfeae?w=400&h=300&fit=crop'"></div>
+                <div class="gallery-item"><img src="gallery-2.jpg" alt="" onerror="this.src='https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=400&h=300&fit=crop'"></div>
+                <div class="gallery-item"><img src="gallery-3.jpg" alt="" onerror="this.src='https://images.unsplash.com/photo-1596464716127-f2a82984de30?w=400&h=300&fit=crop'"></div>
+                <div class="gallery-item"><img src="gallery-4.jpg" alt="" onerror="this.src='https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&h=300&fit=crop'"></div>
+                <div class="gallery-item"><img src="gallery-5.jpg" alt="" onerror="this.src='https://images.unsplash.com/photo-1588072432836-e10032774350?w=400&h=300&fit=crop'"></div>
+                <div class="gallery-item"><img src="gallery-6.jpg" alt="" onerror="this.src='https://images.unsplash.com/photo-1607453998774-d533f65dac99?w=400&h=300&fit=crop'"></div>
             </div>
-            
-            <div class="health-grid">
-                <div class="health-card">
-                    <i class="fas fa-heartbeat"></i>
-                    <h3>متابعة يومية</h3>
-                    <p>فحص يومي لدرجة الحرارة وملاحظة أي أعراض.</p>
-                </div>
-                <div class="health-card">
-                    <i class="fas fa-hand-sparkles"></i>
-                    <h3>نظافة مستمرة</h3>
-                    <p>تعقيم دوري للأدوات والألعاب والمرافق.</p>
-                </div>
-                <div class="health-card">
-                    <i class="fas fa-phone-medical"></i>
-                    <h3>تواصل سريع</h3>
-                    <p>إبلاغ فوري لولي الأمر عند الحاجة.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ==================== معرض الصور ==================== -->
-    <section class="section gallery-section" id="gallery">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">لحظات جميلة</span>
-                <h2 class="section-title">معرض الصور والفيديوهات</h2>
+        <!-- ============ PAGE: COMPLAINTS ============ -->
+        <section class="page" id="page-complaints">
+            <div class="page-header">
+                <span class="page-subtitle">صوتك مسموع</span>
+                <h1 class="page-title">الشكاوى والمقترحات</h1>
+                <p class="page-desc">نرحّب بجميع ملاحظاتكم لتحسين خدماتنا</p>
             </div>
-            
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="gallery-1.jpg" alt="تعليم قرآن" onerror="this.src='https://images.unsplash.com/photo-1609599006353-e629aaabfeae?w=400&h=300&fit=crop'">
-                </div>
-                <div class="gallery-item">
-                    <img src="gallery-2.jpg" alt="فصل دراسي" onerror="this.src='https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=400&h=300&fit=crop'">
-                </div>
-                <div class="gallery-item">
-                    <img src="gallery-3.jpg" alt="رسم وتلوين" onerror="this.src='https://images.unsplash.com/photo-1596464716127-f2a82984de30?w=400&h=300&fit=crop'">
-                </div>
-                <div class="gallery-item">
-                    <img src="gallery-4.jpg" alt="أطفال يلعبون" onerror="this.src='https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&h=300&fit=crop'">
-                </div>
-                <div class="gallery-item">
-                    <img src="gallery-5.jpg" alt="تعلم جماعي" onerror="this.src='https://images.unsplash.com/photo-1588072432836-e10032774350?w=400&h=300&fit=crop'">
-                </div>
-                <div class="gallery-item">
-                    <img src="gallery-6.jpg" alt="نشاط حركي" onerror="this.src='https://images.unsplash.com/photo-1607453998774-d533f65dac99?w=400&h=300&fit=crop'">
-                </div>
-            </div>
-            
-            <div class="lightbox" id="lightbox">
-                <img src="" alt="صورة مكبرة">
-            </div>
-        </div>
-    </section>
 
-    <!-- ==================== الشكاوى والمقترحات ==================== -->
-    <section class="section complaints-section" id="complaints">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">صوتك مسموع</span>
-                <h2 class="section-title">الشكاوى والمقترحات</h2>
-                <p class="section-desc">نرحب بجميع ملاحظاتكم وشكاويكم ومقترحاتكم لتحسين خدماتنا</p>
-            </div>
-            
-            <div class="complaints-wrapper">
-                <form id="complaintsForm" class="complaints-form">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="complaintName">الاسم *</label>
-                            <input type="text" id="complaintName" placeholder="اسمك الكريم" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="complaintPhone">رقم الهاتف *</label>
-                            <input type="tel" id="complaintPhone" placeholder="01xxxxxxxxx" required>
-                        </div>
-                    </div>
-                    
+            <form id="complaintsForm" class="form-card">
+                <div class="form-row">
                     <div class="form-group">
-                        <label for="complaintType">نوع الرسالة *</label>
-                        <select id="complaintType" required>
-                            <option value="">اختر النوع</option>
-                            <option value="شكوى">شكوى</option>
-                            <option value="اقتراح">اقتراح</option>
-                            <option value="استفسار">استفسار</option>
-                            <option value="ملاحظة">ملاحظة</option>
-                            <option value="أخرى">أخرى</option>
+                        <label for="complaintName">الاسم *</label>
+                        <input type="text" id="complaintName" placeholder="اسمك الكريم" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="complaintPhone">رقم الهاتف *</label>
+                        <input type="tel" id="complaintPhone" placeholder="01xxxxxxxxx" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="complaintType">نوع الرسالة *</label>
+                    <select id="complaintType" required>
+                        <option value="">اختر النوع</option>
+                        <option value="شكوى">شكوى</option>
+                        <option value="اقتراح">اقتراح</option>
+                        <option value="استفسار">استفسار</option>
+                        <option value="ملاحظة">ملاحظة</option>
+                        <option value="أخرى">أخرى</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="complaintMessage">الرسالة *</label>
+                    <textarea id="complaintMessage" rows="5" placeholder="اكتب رسالتك بالتفصيل..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    <i class="fab fa-whatsapp"></i> إرسال عبر واتساب
+                </button>
+            </form>
+        </section>
+
+        <!-- ============ PAGE: REGISTRATION ============ -->
+        <section class="page" id="page-registration">
+            <div class="page-header">
+                <span class="page-subtitle">انضم إلينا</span>
+                <h1 class="page-title">سجّل طفلك الآن</h1>
+                <p class="page-desc">املأ النموذج وسيتم التواصل معك عبر واتساب</p>
+            </div>
+
+            <form id="registrationForm" class="form-card">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="childName">اسم الطفل *</label>
+                        <input type="text" id="childName" placeholder="اسم الطفل الكامل" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="childAge">عمر الطفل *</label>
+                        <input type="number" id="childAge" placeholder="مثال: 4" min="2" max="12" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="parentName">اسم ولي الأمر *</label>
+                        <input type="text" id="parentName" placeholder="اسمك الكامل" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="parentPhone">رقم الهاتف *</label>
+                        <input type="tel" id="parentPhone" placeholder="01xxxxxxxxx" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="branch">الفرع المطلوب *</label>
+                        <select id="branch" required>
+                            <option value="">اختر الفرع</option>
+                            <option value="branch1">الفرع الأول - حي عز الدين</option>
+                            <option value="branch2">الفرع الثاني - المنير الجديدة</option>
                         </select>
                     </div>
-                    
                     <div class="form-group">
-                        <label for="complaintMessage">الرسالة *</label>
-                        <textarea id="complaintMessage" rows="5" placeholder="اكتب شكواك أو اقتراحك بالتفصيل..." required></textarea>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-primary btn-block">
-                        <i class="fab fa-whatsapp"></i>
-                        إرسال عبر واتساب
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== التسجيل ==================== -->
-    <section class="section registration-section" id="registration">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">انضم إلينا</span>
-                <h2 class="section-title">سجل طفلك الآن</h2>
-                <p class="section-desc">املأ النموذج وسيتم التواصل معك عبر واتساب لتأكيد التسجيل.</p>
-            </div>
-            
-            <div class="registration-wrapper">
-                <form id="registrationForm" class="registration-form">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="childName">اسم الطفل *</label>
-                            <input type="text" id="childName" placeholder="اسم الطفل الكامل" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="childAge">عمر الطفل *</label>
-                            <input type="number" id="childAge" placeholder="مثال: 4" min="2" max="12" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="parentName">اسم ولي الأمر *</label>
-                            <input type="text" id="parentName" placeholder="اسمك الكامل" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="parentPhone">رقم الهاتف *</label>
-                            <input type="tel" id="parentPhone" placeholder="01xxxxxxxxx" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="branch">الفرع المطلوب *</label>
-                            <select id="branch" required>
-                                <option value="">اختر الفرع</option>
-                                <option value="branch1">الفرع الأول - حي عز الدين</option>
-                                <option value="branch2">الفرع الثاني - المنير الجديدة</option>
-
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="program">البرنامج المطلوب *</label>
-                            <select id="program" required>
-                                <option value="">اختر البرنامج</option>
-                                <option value="quran">تحفيظ قرآن كريم</option>
-                                <option value="full">الاشتراك في الحضانة</option>
-                                <option value="noor">منهج نور البيان</option>
-                                <option value="computer">حاسب آلي</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="notes">ملاحظات إضافية</label>
-                        <textarea id="notes" rows="3" placeholder="أي معلومات إضافية تود إخبارنا بها"></textarea>
-                                                <label for="notes">مكان ركوب الطفل</label>
-                                                                        <textarea id="notes" rows="3" placeholder="مكان ركوب الطفل"></textarea>
-
-
-                    </div>
-                    
-                    <button type="submit" class="btn btn-primary btn-block">
-                        <i class="fab fa-whatsapp"></i>
-                        إرسال الطلب عبر واتساب
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== تواصل معنا ==================== -->
-    <section class="section contact-section" id="contact">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">نسعد بتواصلكم</span>
-                <h2 class="section-title">تواصل معنا</h2>
-            </div>
-            
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3>معلومات التواصل</h3>
-                    <ul class="contact-list">
-                        <li>
-                            <i class="fas fa-phone"></i>
-                            <span>01061255635</span>
-                        </li>
-                        <li>
-                            <i class="fab fa-whatsapp"></i>
-                            <span>01061255635</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>مشتول السوق - شرقية</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-clock"></i>
-                            <span>جميع أيام الأسبوع عدا الجمعة: 8 صباحاً - 1 ظهراً</span>
-                        </li>
-                    </ul>
-                    
-                    <div class="social-links">
-                        <a href="https://wa.me/201061255635" target="_blank" aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
-                        <a href="https://www.facebook.com/share/1CwZ34cRCH/" target="_blank" aria-label="فيسبوك"><i class="fab fa-facebook"></i></a>
-                    </div>
-                    
-                    <div class="map-placeholder">
-                        <i class="fas fa-map-marked-alt"></i>
-                        <span>مشتول السوق - شرقية</span>
+                        <label for="program">البرنامج المطلوب *</label>
+                        <select id="program" required>
+                            <option value="">اختر البرنامج</option>
+                            <option value="quran">تحفيظ قرآن كريم</option>
+                            <option value="full">الاشتراك في الحضانة</option>
+                            <option value="noor">منهج نور البيان</option>
+                            <option value="computer">حاسب آلي</option>
+                        </select>
                     </div>
                 </div>
-                
-                <div class="contact-form">
+                <div class="form-group">
+                    <label for="pickupPoint">مكان ركوب الطفل (اختياري)</label>
+                    <input type="text" id="pickupPoint" placeholder="مثال: أمام مسجد الرحمة">
+                </div>
+                <div class="form-group">
+                    <label for="notes">ملاحظات إضافية</label>
+                    <textarea id="notes" rows="3" placeholder="أي معلومات إضافية"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    <i class="fab fa-whatsapp"></i> إرسال الطلب عبر واتساب
+                </button>
+            </form>
+        </section>
+
+        <!-- ============ PAGE: CONTACT ============ -->
+        <section class="page" id="page-contact">
+            <div class="page-header">
+                <span class="page-subtitle">نسعد بتواصلكم</span>
+                <h1 class="page-title">تواصل معنا</h1>
+            </div>
+
+            <div class="contact-grid">
+                <div class="card contact-info">
+                    <h3>معلومات التواصل</h3>
+                    <ul class="contact-list">
+                        <li><i class="fas fa-phone"></i> 01061255635</li>
+                        <li><i class="fab fa-whatsapp"></i> 01061255635</li>
+                        <li><i class="fas fa-map-marker-alt"></i> مشتول السوق - شرقية</li>
+                        <li><i class="fas fa-clock"></i> جميع الأيام عدا الجمعة: 8 ص - 1 م</li>
+                    </ul>
+                    <div class="social-links">
+                        <a href="https://wa.me/201061255635" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com/share/1CwZ34cRCH/" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+
+                <div class="card contact-form">
                     <h3>أرسل رسالة</h3>
                     <form id="contactForm">
                         <div class="form-group">
@@ -885,47 +591,34 @@
                             <textarea id="message" rows="5" placeholder="اكتب رسالتك هنا..." required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary btn-block">
-                            <i class="fab fa-whatsapp"></i>
-                            إرسال عبر واتساب
+                            <i class="fab fa-whatsapp"></i> إرسال عبر واتساب
                         </button>
                     </form>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ==================== FOOTER ==================== -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <div class="logo-placeholder">
-                        <img src="logo.jpg" alt="شعار دار الفرقان" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <i class="fas fa-quran" style="display: none;"></i>
-                    </div>
-                    <div>
-                        <span class="brand-name">دار الفرقان</span>
-                        <p class="brand-sub">لتعليم القرآن الكريم - مشتول السوق</p>
-                    </div>
-                </div>
-                <p>© 2025 جميع الحقوق محفوظة - دار الفرقان لتعليم القرآن</p>
-                <p class="footer-credit">
-                    Design & Development by 
-                    <a href="https://goootoo700-cmyk.github.io/AbdelrahmanAdel.Portfolio.com/" target="_blank">
-                        Abdul Rahman Adel Al-Muqaddam
-                    </a>
-                </p>
-<div class="share-buttons">
-    <button onclick="shareSite()" class="btn btn-outline">
-        <i class="fas fa-share"></i>
-        مشاركة الموقع
-    </button>
-</div>
-            </div>
-        </div>
-    </footer>
+        <!-- Footer in main area -->
+        <footer class="main-footer">
+            <p>© 2026 دار الفرقان لتعليم القرآن — جميع الحقوق محفوظة</p>
+            <p class="main-credit">Design &amp; Development: <strong>Youssef, Abdelrahman</strong></p>
+        </footer>
 
-    <!-- ملف الجافاسكربت -->
+    </main>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/201061255635" class="wa-float" target="_blank" aria-label="واتساب">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <img src="" alt="صورة مكبّرة">
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
     <script src="script.js"></script>
 </body>
 </html>
